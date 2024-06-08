@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+package monitoring;
+
+option go_package = "./proto;monitoring";
+
+
+service MonitoringService {
+    rpc GetMetrics (MetricsRequest) returns (MetricsResponse);
+}
+
+message MetricsRequest {
+    string server_id = 1;
+}
+
+message MetricsResponse {
+    double cpu_usage = 1;
+    double memory_usage = 2;
+    double disk_usage = 3;
+}
